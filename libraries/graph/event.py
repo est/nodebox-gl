@@ -45,15 +45,18 @@ class events:
     def _mouse(self):
         
         return Point(
-            self._ctx._ns["MOUSEX"], 
-            self._ctx._ns["MOUSEY"]
+            #self._ctx._ns["MOUSEX"]
+            self._ctx.canvas._mouse.dx, 
+            #self._ctx._ns["MOUSEY"]
+            self._ctx.canvas._mouse.dy
         )
         
     mouse = property(_mouse)
  
     def _mousedown(self):
         
-        if self._ctx._ns["mousedown"]:
+        #if self._ctx._ns["mousedown"]:
+        if self._ctx.canvas._mouse.pressed:
             return True
         else:
             return False
@@ -189,7 +192,7 @@ class popup:
         # Defaults for colors and typography.
         self.background = self._ctx.color(0.00, 0.10, 0.15, 0.60)
         self.text       = self._ctx.color(1.00, 1.00, 1.00, 0.80)
-        #self.font       = "Verdana"
+        #self.font       = "Arial"
         self.fontsize   = 9.5
 
         # Cached outlined versions of the text.

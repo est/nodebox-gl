@@ -2272,9 +2272,11 @@ def textpath(string, x=0, y=0, **kwargs):
     p = BezierPath()
     f = fontsize / 1000.0
     for ch in string:
-        try: glyph = glyphs[fontname][w][ch]
-        except:
-            raise GlyphPathError, "no glyph path information for %s %s '%s'" % (w, fontname, ch)
+        #try: glyph = glyphs[fontname][w][ch]
+        glyph = glyphs[fontname][w][ch]
+        #except:
+        #    print fontname
+        #    raise GlyphPathError, "no glyph path information for %s %s '%s'" % (w, fontname, ch)
         for pt in glyph:
             if pt[0] == MOVETO:
                 p.moveto(x+pt[1]*f, y-pt[2]*f)
@@ -3932,7 +3934,6 @@ def frame():
     
 def clear():
     canvas.clear()
-
 
 global WIDTH, HEIGHT
 WIDTH = canvas.width

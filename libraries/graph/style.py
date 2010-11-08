@@ -132,7 +132,7 @@ class style:
         self.stroke      = _ctx.color(0.80, 0.80, 0.80, 0.75)
         self.strokewidth = 0.5
         self.text        = _ctx.color(1.00, 1.00, 1.00, 0.85)
-        #self.font        = "Verdana"
+        #self.font        = "Arial"
         self.fontsize    = 10
         self.textwidth   = 100
         self.align       = 1
@@ -257,7 +257,7 @@ def node_label(s, node, alpha=1.0):
 
     if s.text:
         s._ctx.lineheight(1)    
-        s._ctx.font(s.font)
+        #s._ctx.font(s.font)
         s._ctx.fontsize(s.fontsize)
         s._ctx.nostroke()
         s._ctx.fill(
